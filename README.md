@@ -30,6 +30,11 @@ Project demonstrating the integration of Google Chrome Cast with angular applica
 * Under the ```app/sender``` change the ```CAST_APP_ID``` to your application id from the Developer Console
 * Run 'grunt serve' to serve up the sender application
 
+## To Deploy
+* ```grunt```
+* ```firebase deploy``` (if using firebase)
+* ```grunt serve``` to load up sender app to test
+
 ## Things to be aware of
 * You can debug the chrome via [IP ADDRESS OF DEVICE]:9222
 * The receiver app HTML is being cached by the device, to get around this jumping into the debug console and using ```window.location.reload(true)```
