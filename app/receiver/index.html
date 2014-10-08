@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Receiver</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="receiver/styles/main.css">
+    <link rel="stylesheet" href="shared/styles/shared.css">
+    <!-- endbuild -->
+</head>
+<body class="shared-style-test" ng-app="angularCast-receiver">
+
+    <div ng-controller="HeaderCtrl">
+        <app-heading></app-heading>
+    </div>
+
+    <test-receiver></test-receiver>
+
+    <div ng-controller="ReceiverCtrl">
+
+        <p>Filter Value: {{ filter }}</p>
+
+        <h4>Currently Viewing Games For: {{ console }} <small>{{ consoleMessage }}</small></h4>
+
+        <!-- Grid View -->
+        <div class="row" ng-if="view === 'grid'">
+            <div class="col-sm-4" ng-repeat="game in games">
+                <div class="grid">{{ game }}</div>
+            </div>
+        </div>
+
+        <!-- Table View -->
+        <table class="table" ng-if="view == 'table'">
+            <thead>
+                <tr>
+                    <th>Console</th>
+                    <th>Game</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="game in games">
+                    <td>{{ console }}</td>
+                    <td>{{ game }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>#1</p>
+
+    <!-- Google Cast API -->
+    <script type="text/javascript" src="https://www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+
+    <!-- build:js(./) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({app/receiver,app/shared}) scripts/scripts.js -->
+    <script src="scripts/sharedApp.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/directives/heading.js"></script>
+    <script src="scripts/receiverApp.js"></script>
+    <script src="scripts/controllers/receiver.js"></script>
+    <script src="scripts/directives/testreceiver.js"></script>
+    <script src="scripts/factories/googlecastmessagebus.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

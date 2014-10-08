@@ -1,0 +1,9 @@
+{
+  "firebase": "angular-cast",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

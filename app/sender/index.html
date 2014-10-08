@@ -1,0 +1,74 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Sender</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="sender/styles/main.css">
+    <link rel="stylesheet" href="shared/styles/shared.css">
+    <!-- endbuild -->
+</head>
+<body class="shared-style-test" ng-app="angularCast-sender">
+
+    <div ng-controller="HeaderCtrl">
+        <app-heading></app-heading>
+    </div>
+
+    <test-sender></test-sender>
+
+    <div ng-controller="MainCtrl">
+        <form role="form">
+            <div class="form-group">
+                <label class="control-label">View</label>
+                <select class="form-control" ng-model="view">
+                    <option value="grid">Grid</option>
+                    <option value="table">Table</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Filter</label>
+                <input type="text" class="form-control" ng-model="filter"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Retrieve Games For</label>
+                <select class="form-control" ng-model="console">
+                    <option value="xbox">Xbox</option>
+                    <option value="pc">PC</option>
+                    <option value="playstation">Playstation</option>
+                </select>
+            </div>
+        </form>
+        <button type="button" class="btn btn-success btn-block" ng-click="sendToCast();" ng-disabled="disabled">{{ state }}</button>
+    </div>
+
+    <!-- Google Chrome Cast API -->
+    <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+
+    <!-- build:js(./) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({app/sender,app/shared}) scripts/scripts.js -->
+    <script src="scripts/sharedApp.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/directives/heading.js"></script>
+    <script src="scripts/senderApp.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/factories/googlecastsession.js"></script>
+    <script src="scripts/directives/testsender.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
