@@ -1,6 +1,10 @@
 # Angular Cast
 
-Project demonstrating the integration of Google Chrome Cast with angular applications for both the Sender and Receiver Application with Shared resources between the two.
+Project demonstrating the integration of Google Chrome Cast with angular applications for both the Sender and Receiver Application with Shared resources between the two
+
+## Demo
+* Ensure your chrome cast is on the network and working properly
+* Go to https://angular-cast.firebaseapp.com/sender/
 
 ## Notes
 * Angular applications for both the sender/receiver apps
@@ -22,7 +26,8 @@ Project demonstrating the integration of Google Chrome Cast with angular applica
 * Register a 'Custom Receiver Application' on the Developer Console. The URL should be either the IP address of the system that will run the receiver server from (non-local IP) or the location of where the receiver app is hosted. (I use Firebase for ease of use)
 * Clone the repo
 * Run ```npm install``` and ```bower install```
-* If using firebase (setup an account on https://www.firebase.com/ and have the CLI tools installed) you can run 'firebase init' and choose the dist folder to deploy.
+* If using firebase (setup an account on https://www.firebase.com/ and have the CLI tools installed) you can run 'firebase init' and choose the dist folder to deploy
+* Under the ```app/sender``` change the ```CAST_APP_ID``` to your application id from the Developer Console
 * Run 'grunt serve' to serve up the sender application
 
 ## Things to be aware of
@@ -30,5 +35,5 @@ Project demonstrating the integration of Google Chrome Cast with angular applica
 * The receiver app HTML is being cached by the device, to get around this jumping into the debug console and using ```window.location.reload(true)```
 
 ## Issues / Questions
-* Feel free to open issues for any issues or questions that you have.
+* Feel free to open issues for any issues or questions that you have
 * Pull requests will be accepted to make this example better!
