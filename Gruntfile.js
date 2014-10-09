@@ -15,31 +15,10 @@ module.exports = function (grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
-    // Configurable paths for the application
-    var appConfig = {
-        sender: {
-            app: 'app/sender',
-            dist: 'dist/sender',
-            tmp: '.tmp/sender',
-            port: 9000,
-            livereload: 35729
-        },
-        receiver: {
-            app: 'app/receiver',
-            dist: 'dist/receiver',
-            tmp: '.tmp/receiver',
-            port: 9001,
-            livereload: 35730
-        },
-        shared: {
-            app: 'app/shared'
-        }
-    };
-
     // Define the configuration for all the tasks
     grunt.initConfig({
 
-        yeoman: appConfig,
+        shared: 'app/shared',
 
         config: {
             sender: {
@@ -222,7 +201,7 @@ module.exports = function (grunt) {
             },
             shared: {
                 options: {
-                    sassDir: '<%= yeoman.shared.app %>/styles',
+                    sassDir: '<%= shared %>/styles',
                     cssDir: '.tmp/shared/styles',
                 },
                 server: {
@@ -332,7 +311,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         dot: true,
-                        cwd: '<%= yeoman.shared.app %>',
+                        cwd: '<%= shared %>',
                         dest: '<%= grunt.config.get("dist") %>',
                         src: [
                             'views/{,*/}*.html'
